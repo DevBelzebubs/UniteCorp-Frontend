@@ -1,0 +1,98 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Outfit', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --color-primary-50: #eef3ff;
+  --color-primary-100: #dde7ff;
+  --color-primary-200: #c3d4ff;
+  --color-primary-300: #9cb7ff;
+  --color-primary-400: #6f92ff;
+  --color-primary-500: #4768f5;
+  --color-primary-600: #2842d9;
+  --color-primary-700: #1630ae;
+  --color-primary-800: #00288e;
+  --color-primary-900: #001f6b;
+  --color-primary-950: #00123d;
+  --color-primary: #00288e;
+
+  --color-surface: #f8f9ff;
+  --color-ink: #0b1c30;
+  --color-muted: #444653;
+  --color-soft: #b8c4ff;
+  --color-tint: #eff4ff;
+  --color-hero: #cbdbf5;
+  --color-mist: #d3e4fe;
+  --color-periwinkle: #dde1ff;
+  --color-line: #c4c5d5;
+  --color-card: #ffffff;
+  --color-success: #006c49;
+  --color-warn: #6b4200;
+}
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --color-surface: #0a0f1a;
+  --color-ink: #e4e8f1;
+  --color-muted: #9ca3b8;
+  --color-soft: #7b84a8;
+  --color-tint: #0d1424;
+  --color-hero: #0f1a30;
+  --color-mist: #1a2540;
+  --color-periwinkle: #1e2a4a;
+  --color-line: #252e45;
+  --color-card: #111827;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-surface text-muted antialiased;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-primary);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link {
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe-translate,
+  .motion-safe-scale {
+    transform: none !important;
+  }
+}
