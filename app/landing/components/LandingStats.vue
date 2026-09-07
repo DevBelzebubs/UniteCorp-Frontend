@@ -56,9 +56,7 @@ function initials(name: string) {
           v-reveal:100
           class="flex flex-col items-center gap-3"
         >
-          <span
-            class="text-6xl font-bold leading-none tracking-[-0.03em] text-white md:text-8xl"
-          >
+          <span class="text-6xl font-bold leading-none tracking-[-0.03em] text-white md:text-7xl">
             <NumberFlow
               :value="animatedValues[index]"
               :suffix="stat.suffix"
