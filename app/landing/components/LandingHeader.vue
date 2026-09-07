@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { navLinks } from '../content/navigation'
-
+import AuthModal from "../components/auth/AuthModal.vue"
 const mobileOpen = ref(false)
 const activeLink = ref('Inicio')
+
+const loginOpen = ref<boolean>(false)
 </script>
 
 <template>
@@ -21,12 +23,11 @@ const activeLink = ref('Inicio')
       </nav>
 
       <div class="flex items-center gap-2 sm:gap-3">
-        <a
-          href="#causas"
-          class="hidden h-[44px] items-center justify-center rounded-lg bg-primary px-5 text-sm font-semibold text-white transition-all duration-200 hover:bg-primary-700 active:scale-[0.98] lg:inline-flex"
-        >
-          Únete
-        </a>
+        <h3 class="hidden h-[44px] items-center justify-center 
+            rounded-lg bg-primary px-5 text-sm font-semibold text-white transition-all duration-200 
+            hover:bg-primary-700 active:scale-[0.98] lg:inline-flex hover:cursor-pointer" @click="loginOpen = !loginOpen">
+            Únete
+        </h3>
         <button type="button" aria-label="Abrir menú"
           class="flex h-10 w-10 items-center justify-center rounded-full text-primary hover:bg-periwinkle/50 lg:hidden"
           @click="mobileOpen = !mobileOpen">
@@ -49,4 +50,14 @@ const activeLink = ref('Inicio')
       </nav>
     </div>
   </header>
+  <Transition
+    enter-active-class="transition-all duration-300 ease-out"
+    enter-from-class="opacity-0 scale-95"
+    enter-to-class="opacity-100 scale-100"
+    leave-active-class="transition-all duration-200 ease-in"
+    leave-from-class="opacity-100 scale-100"
+    leave-to-class="opacity-0 scale-95"
+  >
+    <AuthModal v-if="loginOpen" :is-open="true" @close="loginOpen = false" />
+  </Transition>
 </template>
