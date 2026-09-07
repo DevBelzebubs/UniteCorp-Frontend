@@ -15,26 +15,18 @@ import { howItWorks } from '../content/howItWorks'
       </div>
 
       <div class="flex w-full flex-col gap-24">
-        <div
-          v-for="(step, index) in howItWorks"
-          :key="step.title"
-          v-reveal
-          class="relative grid gap-6 md:grid-cols-2 md:items-center md:gap-16"
-        >
+        <div v-for="(step, index) in howItWorks" :key="step.title" v-reveal
+          class="relative grid gap-6 md:grid-cols-2 md:items-center md:gap-16">
           <!-- Decorative compiler: only for steps 1 and 3 to avoid zigzag monotony -->
-          <div
-            v-if="index % 2 === 0"
+          <div v-if="index % 2 === 0"
             class="pointer-events-none absolute left-0 -top-20 hidden text-[180px] font-bold leading-none tracking-[-0.04em] text-primary/10 md:block"
-            aria-hidden="true"
-          >
+            aria-hidden="true">
             {{ String(index + 1).padStart(2, '0') }}
           </div>
 
           <!-- Step 2 is centered full-width, not a zigzag row -->
-          <div
-            v-if="index === 1"
-            class="relative col-span-1 flex flex-col items-center gap-4 text-center md:col-span-2 md:mx-auto md:max-w-xl"
-          >
+          <div v-if="index === 1"
+            class="relative col-span-1 flex flex-col items-center gap-4 text-center md:col-span-2 md:mx-auto md:max-w-xl">
             <div class="flex h-20 w-20 items-center justify-center rounded-2xl bg-periwinkle/70">
               <UIcon :name="step.icon" class="h-8 w-8 text-primary" />
             </div>
@@ -47,10 +39,7 @@ import { howItWorks } from '../content/howItWorks'
           </div>
 
           <!-- Steps 1 and 3: content right, decorative numeral left -->
-          <div
-            v-else
-            class="relative z-10 flex flex-col items-start gap-4 text-left md:col-start-2"
-          >
+          <div v-else class="relative z-10 flex flex-col items-start gap-4 text-left md:col-start-2">
             <div class="flex h-20 w-20 items-center justify-center rounded-2xl bg-periwinkle/70">
               <UIcon :name="step.icon" class="h-8 w-8 text-primary" />
             </div>
