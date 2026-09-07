@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useTextSize } from '~/hooks/useTextSize'
+
 const colorMode = useColorMode()
 const { increase, decrease, size, canIncrease, canDecrease } = useTextSize()
 
